@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  whatsapp-telegram-forwarder:
+    image: ghcr.io/cchrkk/whatsapp-telegram-forwarder:latest
+    container_name: whatsapp-telegram-forwarder
+    restart: unless-stopped
+    environment:
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - TELEGRAM_CHAT_ID=${TELEGRAM_CHAT_ID}
+      - ALLOWED_CHAT_IDS=${ALLOWED_CHAT_IDS}
+      - ALLOWED_CHAT_NAMES=${ALLOWED_CHAT_NAMES}
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+    volumes:
+      - ./sessions:/app/sessions
+      - ./logs:/app/logs
+      - .env:/app/.env
+    ports:
+      - "3000:3000"
+    depends_on:
+      - redis
+    networks:
+      - app-network
+
+  redis:
+    image: redis:7-alpine
+    container_name: redis
+    restart: unless-stopped
+    volumes:
+      - redis_data:/data
+    networks:
+      - app-network
+
+volumes:
+  redis_data:
+
+networks:
+  app-network:
+    driver: bridge
