@@ -4,9 +4,6 @@ FROM node:18-alpine
 # Imposta la directory di lavoro
 WORKDIR /app
 
-# Copia i file di configurazione
-COPY package*.json ./
-
 # Installa alcuni pacchetti aggiuntivi necessari per whatsapp-web.js
 RUN apk add --no-cache \
     chromium \
@@ -19,8 +16,14 @@ RUN apk add --no-cache \
 # Imposta le variabili d'ambiente per Puppeteer (necessario per whatsapp-web.js)
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 
+# Copia i file di configurazione
+COPY package*.json ./
+
+# Verifica il contenuto della directory (per debug)
+RUN ls -la
+
 # Installa le dipendenze
-RUN npm ci --only=production
+RUN npm install --only=production
 
 # Copia il codice sorgente
 COPY . .

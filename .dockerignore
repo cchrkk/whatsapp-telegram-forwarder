@@ -52,3 +52,4 @@ LICENSE
 
 # File di lock npm (incluso solo se necessario)
 !package-lock.json
+!package.json
