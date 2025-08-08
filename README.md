@@ -209,6 +209,10 @@ Se i messaggi non arrivano su Telegram:
 2. Verifica che l'ID chat sia corretto
 3. Controlla i log per eventuali errori
 
+### Problemi con Git e GitHub
+
+Se hai problemi con il caricamento del progetto su GitHub, consulta il file [docs/github-upload-commands.md](docs/github-upload-commands.md) per istruzioni dettagliate e soluzioni ai problemi comuni.
+
 ## Contribuire
 
 1. Fork del repository
