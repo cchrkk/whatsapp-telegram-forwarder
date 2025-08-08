@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Installa le dipendenze
-RUN npm ci --only=production
+RUN npm install --omit=dev
 
 # Installa alcuni pacchetti aggiuntivi necessari per whatsapp-web.js
 RUN apk add --no-cache \
