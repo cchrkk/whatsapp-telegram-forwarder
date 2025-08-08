@@ -11,7 +11,8 @@ npm-debug.log*
 
 # File di sessione WhatsApp
 sessions/
-*.json
+# Escludi i file JSON di sessione ma non package.json
+session*.json
 
 # File di log
 logs/
