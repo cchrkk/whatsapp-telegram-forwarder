@@ -213,6 +213,10 @@ Se i messaggi non arrivano su Telegram:
 
 Se hai problemi con il caricamento del progetto su GitHub, consulta il file [docs/github-upload-commands.md](docs/github-upload-commands.md) per istruzioni dettagliate e soluzioni ai problemi comuni.
 
+### Problemi con la build Docker
+
+Se hai problemi con la build dell'immagine Docker, consulta il file [docs/docker-troubleshooting.md](docs/docker-troubleshooting.md) per istruzioni dettagliate e soluzioni ai problemi comuni.
+
 ## Contribuire
 
 1. Fork del repository

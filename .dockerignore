@@ -1,0 +1,54 @@
+# Dipendenze Node.js
+node_modules/
+npm-debug.log*
+.npm/
+.npmrc
+
+# File di ambiente
+.env
+.env.local
+.env.*.local
+
+# File di sessione WhatsApp
+sessions/
+*.json
+
+# File di log
+logs/
+*.log
+
+# File temporanei
+temp/
+tmp/
+
+# File di sistema
+.DS_Store
+Thumbs.db
+
+# IDE e editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Docker
+docker-compose.override.yml
+
+# File generati
+dist/
+build/
+
+# Git
+.git
+.gitignore
+
+# File di documentazione non necessari per la build
+docs/
+README.md
+LICENSE
+
+# File di configurazione esempio
+.env.example
+
+# File di lock npm (incluso solo se necessario)
+!package-lock.json

@@ -7,9 +7,6 @@ WORKDIR /app
 # Copia i file di configurazione
 COPY package*.json ./
 
-# Installa le dipendenze
-RUN npm install --omit=dev
-
 # Installa alcuni pacchetti aggiuntivi necessari per whatsapp-web.js
 RUN apk add --no-cache \
     chromium \
@@ -17,12 +14,13 @@ RUN apk add --no-cache \
     freetype \
     harfbuzz \
     ca-certificates \
-    ttf-freefont \
-    nodejs \
-    yarn
+    ttf-freefont
 
 # Imposta le variabili d'ambiente per Puppeteer (necessario per whatsapp-web.js)
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
+
+# Installa le dipendenze
+RUN npm ci --only=production
 
 # Copia il codice sorgente
 COPY . .
